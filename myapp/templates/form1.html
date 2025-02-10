@@ -123,12 +123,52 @@
   const passwordInput = document.getElementById('password');
   const errorMessage = document.getElementById('errorMessage');
 
+  // List of common passwords
+  const COMMON_PASSWORDS = [
+      "123456", "password", "123456789", "qwerty", "12345678",
+      "111111", "123123", "admin", "welcome"
+  ];
+
+  // Function to check for weak passwords
+  function isWeakPassword(password) {
+      // Check if the password is in the list of common passwords
+      if (COMMON_PASSWORDS.includes(password.toLowerCase())) {
+          return true;
+      }
+
+      // Check for common patterns
+      const patterns = [
+          /^[a-z]+$/,                  // Only lowercase letters
+          /^[A-Z]+$/,                  // Only uppercase letters
+          /^[0-9]+$/,                  // Only numbers
+          /^[a-zA-Z]+$/,               // Only letters
+          /^(.)\1{2,}$/,               // Repeating characters (e.g., aaa, 111)
+          /(123|234|345|456|567|678|789|890|012)$/,  // Sequential numbers
+          /(qwerty|asdfgh|zxcvbn)/,    // Common keyboard patterns
+      ];
+
+      for (const pattern of patterns) {
+          if (pattern.test(password)) {
+              return true;
+          }
+      }
+
+      return false;
+  }
+
+  // Event listener for password input
   passwordInput.addEventListener('input', () => {
-      if (passwordInput.value.length < 10) {
+      const password = passwordInput.value;
+
+      if (password.length < 10 || isWeakPassword(password)) {
           errorMessage.style.display = 'inline'; // Show the error message
+          errorMessage.innerText = password.length < 10
+              ? 'Password must be at least 10 characters long.'
+              : 'Password is too weak. Please avoid common or predictable patterns.';
       } else {
           errorMessage.style.display = 'none'; // Hide the error message
       }
   });
 </script>
+
 {% endblock %}

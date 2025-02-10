@@ -1,7 +1,23 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block content %}
-
+<style>
+  .error {
+      display: none;
+      color: red;
+  }
+  body {
+      color: white;
+      background-color:rgb(9, 55, 91);
+  }
+  .scrollable {
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enables scrolling */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+</style>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
@@ -10,30 +26,31 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       {% comment %} <a class="nav-item nav-link me-3" href="#">Login</a> {% endcomment %}
-      <a class="nav-item nav-link" href="{% url 'home' %}">Back</a>
+      <a class="nav-item nav-link" href="{% url 'home' %}"" style="color: black;">Back</a>
     </div>
   </div>
 </nav>
 
 <!-- Form Sections -->
 
-
+<div class="scrollable">
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <!-- Password Strength Check -->
-      <h3 class="text-center">Check Password Strength</h3>
+      <h3 class="text-center" >Check Password Strength</h3>
       <form action="{% url 'password' %}" method="POST" class="p-3 border rounded bg-light">
         {% csrf_token %}
         <div class="mb-3" dir="ltr">
-          <label for="password" class="form-label" style="text-align: left;">Enter Password</label>
+          <label for="password" class="form-label" style="text-align: left;color:  black;">Enter Password</label>
           <input type="password" class="form-control" id="password" name="password" style="text-align: left;" required>
+          <span id="errorMessage" class="error">Password must be at least 10 characters long.</span>
         </div>
         {% if strength %}
-        <p><strong>Password :  {{password}}</strong>
+        <p><strong style="color:  black;">Password :  {{password}}</strong>
 
        
-    <p><strong>Password Strength:</strong> 
+    <p><strong style="color:  black;">Password Strength:</strong> 
         <span style="color: {% if strength == 'Weak' %}red{% elif strength == 'Medium' %}orange{% else %}green{% endif %};">
             {{ strength}}
         </span>
@@ -54,14 +71,14 @@
       <form action="{% url 'ure' %}" method="POST" class="p-3 border rounded bg-light">
         {% csrf_token %}
         <div class="mb-3" dir="ltr">
-          <label for="url" class="form-label" style="text-align:left;">Enter URL</label>
+          <label for="url" class="form-label" style="text-align:left;color:  black;">Enter URL</label>
           <input type="text" class="form-control" id="url" name="url" required>
         </div>
         {% if url_label %}
     
 
        
-    <p><strong>URL Type:</strong> 
+    <p><strong style="color:  black;">URL Type:</strong> 
         <span style="color: {% if url_label  == 'phishing' %}red{% elif url_label == 'defacement' %}orange{% elif url_label == 'malware' %}yellow{% else %}green{% endif %};">
             {{url_label }}
         </span>
@@ -82,13 +99,13 @@
       <form action="{% url 'XSS' %}" method="POST" class="p-3 border rounded bg-light">
         {% csrf_token %}
         <div class="mb-3" dir="ltr">
-            <label for="code" class="form-label" style="text-align:left;">Enter Code</label>
+            <label for="code" class="form-label" style="text-align:left;color:  black;">Enter Code</label>
             <input type="text" class="form-control" id="code" name="code" required>
             
         </div>
         {% if prediction%}
-        <p><strong>Code :  {{code}}</strong><br>
-        <p><strong>Prediction:</strong>
+        <p><strong style="color:  black;">Code :  {{code}}</strong><br>
+        <p><strong style="color:  black;">Prediction:</strong>
         <span style="color: {% if prediction == 'XSS Detected' %}green{% else %}red{% endif %};">
             {{ prediction }}
         </span>
@@ -101,5 +118,17 @@
     </div>
   </div>
 </div>
+</div>
+<script>
+  const passwordInput = document.getElementById('password');
+  const errorMessage = document.getElementById('errorMessage');
 
+  passwordInput.addEventListener('input', () => {
+      if (passwordInput.value.length < 10) {
+          errorMessage.style.display = 'inline'; // Show the error message
+      } else {
+          errorMessage.style.display = 'none'; // Hide the error message
+      }
+  });
+</script>
 {% endblock %}

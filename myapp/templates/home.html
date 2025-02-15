@@ -1,0 +1,127 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    {% comment %} .container {
+        display: flex;
+        justify-content: center;  /* Centers horizontally */
+        align-items: center;      /* Centers vertically */
+        height: 100vh;            /* Full viewport height */
+        background-color: #f5f5f5;
+    } {% endcomment %}
+    
+    .card {
+        background: rgba(17, 68, 94, 0.5); /* Transparent effect */
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+    }
+    
+    .bg-container {
+        background: url("{% static 'home.jpg' %}") no-repeat center center/cover;
+        background-size: 95%;
+        height: 90vh; /* Full viewport height */
+        width:100%;
+        display: flex;
+        justify-content: center;
+        align-items: normal;
+        color: white; /* Make text visible */
+        text-align: center;
+        font-size: 2rem;
+       
+    }
+    .container-fluid{
+        background-color:rgb(128, 203, 228)
+    }
+    @font-face {
+        font-family: 'MyCustomFont';
+        src: url("{% static 'fonts/MyFont.ttf' %}") format('truetype');
+    }
+
+    /* General Styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    .card-text{
+        text-align: left;
+        color:darkslategrey;
+    }
+
+</style>
+
+    
+</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar">
+        <div class="navbar-brand">
+                CyberNLPSuite
+        </div>
+        {% comment %} <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> {% endcomment %}
+        {% comment %} <a class="nav-item nav-link disabled" href="#">Disabled</a> {% endcomment %}
+        <a class="nav-item nav-link" href="#">Login</a>
+        <div style="margin-right: 20px;"></div>
+        <a class="nav-item nav-link" href="{% url 'signup' %}">Sign In</a>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="bg-container">
+       <div class="txt-container">
+     
+    <br />Security is always excessive until it’s not enough
+       </div>
+        </div>
+    </div>
+
+{% comment %} < class="container"> {% endcomment %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+        
+        <div class="card-body">
+          <p class="card-text">CyberNLPSuite analyzes website links in real time to detect phishing attempts before you click. Our advanced AI identifies malicious URLs that mimic legitimate sites, protecting you from scams, credential theft, and online fraud.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            
+            <div class="card-body">
+              <p class="card-text">Weak passwords are a hacker’s easiest entry point. CyberNLPSuite evaluates password strength, detects vulnerabilities, and provides actionable recommendations to enhance security. Ensure your credentials are strong enough to keep attackers out.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                
+                <div class="card-body">
+                  <p class="card-text">Cross-Site Scripting (XSS) attacks can inject harmful scripts into your website, compromising data and user security. CyberNLPSuite actively scans and detects potential XSS vulnerabilities, preventing unauthorized code execution and keeping your site safe.</p>
+                </div>
+              </div>
+            </div>
+    </div>
+</div>
+
+<hr>
+
+
+<footer class="custom-footer">
+    <div class="text-center p-3">
+        © 2024 CyberNLPSuite | All Rights Reserved
+    </div>
+</footer>
+
+ {% endblock %}

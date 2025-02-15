@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <!-- Navbar Toggler (For Mobile) -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible Navbar Content -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup" style="align: right;">
+      <a class="nav-item nav-link me-3" href="#">Login</a>
+      <a class="nav-item nav-link" href="{% url 'home' %}">Back</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Form Section -->
+<h1 style="text-align: center; margin-top: 1rem;">Register</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6"  style="margin: 0 auto;">
+            <form>
+                <div class="form-btn-group" style="text-align: left;">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else </small>
+                    </div>
+                <div class="form-btn-group"  style="text-align: left;">
+                    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" required>
+                </div>
+                <br>
+                <button style="align: center;"
+                type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+            </form>
+
+{% endblock %}

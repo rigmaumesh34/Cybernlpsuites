@@ -9,11 +9,30 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
 
     <title>CyberNLPSuite</title>
+<style>
+  .navbar nav-item nav-link{
+    padding:60px;
+  }
+  .navbar {
+    padding: 10px 30px; /* Top & Bottom = 10px, Left & Right = 30px */
+}
+footer{
+  background-color:cornflowerblue;
+}
+.custom-footer{
+  background-color: cornflowerblue;
+  color: white;
+  padding: 15px;
+  height:10vh
+
+  
+}
+</style>
   </head>
  
   <body>
    
-    
+   
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -24,23 +43,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
   
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          {% comment %} <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> {% endcomment %}
-          <a class="nav-item nav-link" href="#">Login</a>
-          <a class="nav-item nav-link" href="#">Signup</a>
-
-          {% comment %} <a class="nav-item nav-link disabled" href="#">Disabled</a> {% endcomment %}
-        </div>
-      </div>
-    </nav>
-
-
 
     <div class="container">
       {% block content %}
@@ -48,9 +50,10 @@
       
       
 
-      
+
       {% endblock %}
   </div>
+
 
 
 

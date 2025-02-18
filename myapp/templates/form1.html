@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      {% comment %} <a class="nav-item nav-link me-3" href="#">Login</a> {% endcomment %}
+      <a class="nav-item nav-link" href="{% url 'home' %}">Back</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Form Sections -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- Password Strength Check -->
+      <h3 class="text-center">Check Password Strength</h3>
+      <form action="#" method="POST" class="p-3 border rounded bg-light">
+        {% csrf_token %}
+        <div class="mb-3" style="text-align=center">
+          <label for="password" class="form-label">Enter Password</label>
+          <input type="password" class="form-control text-end" id="password" name="password" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Check Strength</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- Malicious URL Detection -->
+      <h3 class="text-center">Check If URL is Safe</h3>
+      <form action="#" method="POST" class="p-3 border rounded bg-light">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="url" class="form-label">Enter URL</label>
+          <input type="text" class="form-control text-end" id="url" name="url" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Check URL</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <!-- XSS Injection Detection -->
+      <h3 class="text-center">Check for XSS Injection</h3>
+      <form action="#" method="POST" class="p-3 border rounded bg-light">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="code" class="form-label" style="text-align: left;">Enter Code</label>
+            <input type="text" class="form-control text-end" id="code" name="code" required>
+            
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Check Code</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

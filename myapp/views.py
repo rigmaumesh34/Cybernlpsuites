@@ -14,5 +14,5 @@ def signup(request):
     return render(request,'signup.html')
 
 
-# def submitform(request):
-#     re
+def password(request):
+    return render(request,'form1.html')

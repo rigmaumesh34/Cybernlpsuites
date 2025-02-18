@@ -47,6 +47,7 @@
         margin: 0;
         padding: 0;
         background-color: #f5f5f5;
+        text-align: left;
     }
     .card-text{
         text-align: left;
@@ -64,14 +65,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar">
-        <div class="navbar-brand">
+        {% comment %} <div class="navbar-brand">
                 CyberNLPSuite
-        </div>
+        </div> {% endcomment %}
         {% comment %} <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> {% endcomment %}
         {% comment %} <a class="nav-item nav-link disabled" href="#">Disabled</a> {% endcomment %}
-        <a class="nav-item nav-link" href="#">Login</a>
+        <a class="nav-item nav-link" href="{% url 'password' %}">   CyberNLPSuite</a>
         <div style="margin-right: 20px;"></div>
-        <a class="nav-item nav-link" href="{% url 'signup' %}">Sign In</a>
+        {% comment %} <a class="nav-item nav-link" href="{% url 'signup' %}">Sign In</a> {% endcomment %}
       </div>
     </div>
   </nav>

@@ -58,6 +58,16 @@
           <label for="url" class="form-label">Enter URL</label>
           <input type="text" class="form-control text-end" id="url" name="url" required>
         </div>
+        {% if url_label %}
+    
+
+       
+    <p><strong>RRL Type:</strong> 
+        <span style="color: {% if url_label  == 'phishing' %}red{% elif url_label == 'defacement' %}orange{% elif url_label == 'malware' %}yellow{% else %}green{% endif %};">
+            {{url_label }}
+        </span>
+    </p>
+      {% endif %}
         <div class="text-center">
           <button type="submit" class="btn btn-primary">Check URL</button>
         </div>

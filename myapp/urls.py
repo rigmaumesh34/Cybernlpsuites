@@ -22,7 +22,9 @@ urlpatterns = [
     path('index/',views.index,name='index'),
     path('',views.home,name='home'),
     path('signup',views.signup,name='signup'),
+    path('ure',views.ure,name='ure'),
     path('password',views.password,name='password'),
+    path('XSS',views.XSS,name='XSS'),
     
     
 ]

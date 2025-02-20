@@ -28,7 +28,7 @@
         {% csrf_token %}
         <div class="mb-3" style="text-align=center">
           <label for="password" class="form-label">Enter Password</label>
-          <input type="password" class="form-control text-end" id="password" name="password" maxlength="10" required>
+          <input type="password" class="form-control text-end" id="password" name="password" required>
         </div>
         {% if strength %}
         <p><strong>Password :  {{password}}</strong>
@@ -87,6 +87,7 @@
             <input type="text" class="form-control text-end" id="code" name="code" required>
             
         </div>
+        {{prediction}}
         <div class="text-center">
           <button type="submit" class="btn btn-primary">Check Code</button>
         </div>

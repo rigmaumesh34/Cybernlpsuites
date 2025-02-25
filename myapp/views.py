@@ -27,7 +27,7 @@ from gensim.models import Word2Vec
 
 vectorizer_path = os.path.join(settings.BASE_DIR, 'mlmodels', 'vectorizer.pkl')
 model_path = os.path.join(settings.BASE_DIR, 'mlmodels', 'password_model.pkl')
-model_path2 = os.path.join(settings.BASE_DIR, 'mlmodels', 'random_forest_model.pkl')
+model_path2 = os.path.join(settings.BASE_DIR, 'mlmodels', 'random_forest_phish.pkl')
 word2vec_model_path = os.path.join(settings.BASE_DIR, 'mlmodels', 'word2vec_model.pkl')
 model_path3 = os.path.join(settings.BASE_DIR, 'mlmodels', 'rf_classifier.pkl')
 

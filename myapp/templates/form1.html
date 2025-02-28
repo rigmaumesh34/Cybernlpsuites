@@ -17,8 +17,7 @@
 
 <!-- Form Sections -->
 
-{{url}}
-{{code}}
+
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -26,9 +25,9 @@
       <h3 class="text-center">Check Password Strength</h3>
       <form action="{% url 'password' %}" method="POST" class="p-3 border rounded bg-light">
         {% csrf_token %}
-        <div class="mb-3" style="text-align:start">
-          <label for="password" class="form-label">Enter Password</label>
-          <input type="password" class="form-control text-end" id="password" name="password" required>
+        <div class="mb-3" dir="ltr">
+          <label for="password" class="form-label" style="text-align: left;">Enter Password</label>
+          <input type="password" class="form-control" id="password" name="password" style="text-align: left;" required>
         </div>
         {% if strength %}
         <p><strong>Password :  {{password}}</strong>
@@ -54,9 +53,9 @@
       <h3 class="text-center">Check If URL is Safe</h3>
       <form action="{% url 'ure' %}" method="POST" class="p-3 border rounded bg-light">
         {% csrf_token %}
-        <div class="mb-3">
-          <label for="url" class="form-label">Enter URL</label>
-          <input type="text" class="form-control text-end" id="url" name="url" required>
+        <div class="mb-3" dir="ltr">
+          <label for="url" class="form-label" style="text-align:left;">Enter URL</label>
+          <input type="text" class="form-control" id="url" name="url" required>
         </div>
         {% if url_label %}
     
@@ -82,9 +81,9 @@
       <h3 class="text-center">Check for XSS Injection</h3>
       <form action="{% url 'XSS' %}" method="POST" class="p-3 border rounded bg-light">
         {% csrf_token %}
-        <div class="mb-3">
-            <label for="code" class="form-label" style="text-align: left;">Enter Code</label>
-            <input type="text" class="form-control text-end" id="code" name="code" required>
+        <div class="mb-3" dir="ltr">
+            <label for="code" class="form-label" style="text-align:left;">Enter Code</label>
+            <input type="text" class="form-control" id="code" name="code" required>
             
         </div>
         {% if prediction%}
